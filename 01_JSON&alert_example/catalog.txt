@@ -1,0 +1,10 @@
+{
+"studenti": [
+{ "Nume":"John" , "Nota":10 }, 
+{ "Nume":"Anna" , "Nota":8 }, 
+{ "Nume":"Peter" , "Nota":6 } ,
+{ "Nume":"Iulian" , "Nota":7 }, 
+{ "Nume":"Vlad" , "Nota":9 },
+{ "Nume":"Julia" , "Nota":10}
+]
+}

@@ -1,0 +1,58 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--<title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        -->
+        <script src="alert.js"></script>
+         <script>
+           function init() {  
+           for(var i = 1; i < 10; i++) {
+               //document.write("<a href  onclick='alerta1(this)'>Link" + i + "</a><br>");
+               var link = document.createElement("a");
+               
+               var node1 =document.createTextNode("Link "+ i);
+               link.appendChild(node1);
+               //link.setAttribute("name", "Link" + i);
+
+               // var attribute = document.createAttribute("href");
+                //attribute.nodeValue = "15"
+                link.setAttribute("href", "#");
+               
+                //var atrAlert = document.createAttribute("onClick");
+                //link.setAttribute(name, value)
+                
+                (function() {
+                    
+                    var t = i;
+                
+                    link.onclick = function () { 
+                        alert(t);
+
+                        return false;
+                    };
+                    
+                })();
+                              
+                var element = document.getElementById("newdiv1");
+                element.appendChild(link);
+                
+           }
+           }
+        </script>
+        </head>
+        <body onload="init()">
+         
+         <div id="newdiv1">
+            <p> Merge </p>
+        </div>
+        
+       
+    
+       
+    </body>
+</html>
