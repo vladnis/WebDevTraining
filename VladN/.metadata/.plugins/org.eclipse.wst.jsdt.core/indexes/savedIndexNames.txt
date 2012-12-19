@@ -1,0 +1,6 @@
+INDEX VERSION 1.121+/home/vlad/Desktop/GitHub/WebDevTraining/VladN/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
+3047629754.index
+2630620138.index
+182176351.index
+3813963771.index
+3179603111.index
