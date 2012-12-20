@@ -1,0 +1,46 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script>
+            function indicii(str) 
+            {
+                var xmlhttp;
+                if (str.length == 0)
+                {
+                    document.getElementById("txthint").innerHTML = "";
+                    return;
+                }
+                if (window.XMLHttpRequest){
+                    xmlhttp = new XMLHttpRequest();
+                }
+                else {
+                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                xmlhttp.onreadystatechange = function () 
+                    {
+                        if ((xmlhttp.readyState == 4) && (xmlhttp.status == 200)) {
+                            document.getElementById("txthint").innerHTML = xmlhttp.responseText;
+                        }
+                    }
+                    
+               xmlhttp.open("GET", "sugestii.php?q="+str, true);
+               xmlhttp.send();
+                
+            }
+        </script>
+    </head>
+    <body>
+        <h3> Adaugati numele in casuta de mai jos </h3>
+        <!-- <form action=""> -->
+            Nume: <input type="text" id="text1" onkeyup="indicii(this.value)" />
+      
+         <!--</form>-->
+         <p>Sugestii: <span id="txthint"></span></p>
+    </body>
+</html>
