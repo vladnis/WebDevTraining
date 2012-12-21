@@ -1,0 +1,88 @@
+<?php
+
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+ 
+
+ob_start(); # start buffer
+include_once( "tenis.php" );
+# we pass the output to a variable
+$str_final = ob_get_contents();
+ ob_end_clean(); # end buffer 
+
+
+
+
+  echo '
+ 
+    
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script>
+            function genereaza() {
+            
+            /* var xmlhttp;
+               
+                if (window.XMLHttpRequest){
+                    xmlhttp = new XMLHttpRequest();
+                }
+                else {
+                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                xmlhttp.onreadystatechange = function () 
+                    {
+                        if ((xmlhttp.readyState == 4) && (xmlhttp.status == 200)) {
+                            
+                            document.getElementById("afisare").innerHTML = xmlhttp.responseText;
+                        }
+                    }
+                    
+               xmlhttp.open("GET", "http://www.atpworldtour.com/Rankings/Singles.aspx", true);
+               xmlhttp.send();
+             */
+             /*
+            //xmlDoc = document.implementation.createDocument();
+            //xmlDoc.onload = readXML;
+            //xmlDoc.load(xmlfile);
+            //document.write(xmlDoc.getElementsByTagName("html")[0].innerHTML);
+           // document.getElementById("afisare").innerHTML();
+            //var tagname = dom.getElementsByTagName("div");
+            //tagname.getAttribute("class");
+
+            //if (tagname == "rankingsContent") {
+            //    document.getElementById("afisare").innerHTML = tagname.nodeValue;
+            //}
+            */
+            ';
+            
+           
+
+            echo '
+            document.getElementById("afisare").innerHTML = '.$str_final.';';
+            
+           // include("tenis.php");
+            echo '
+            }
+        </script>
+    </head>
+    <body>
+       
+   <button type="button" onclick="genereaza()">Genereaza</button>
+          <div id ="afisare">
+              TODO write content
+              
+         </div>
+   </body>
+</html>
+';
+            //echo $str_final;
+   
+?>

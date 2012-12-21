@@ -1,0 +1,92 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function loadXMLDoc()
+            {
+                var xmlhttp;
+                if (window.XMLHttpRequest)
+                {// code for IE7+, Firefox, Chrome, Opera, Safari
+                  xmlhttp=new XMLHttpRequest();
+                }
+                else
+                {// code for IE6, IE5
+                  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+                }
+
+                xmlhttp.onreadystatechange=function()
+                {
+                    if (xmlhttp.readyState==4 && xmlhttp.status==200)
+                    {
+            
+                        var tabel = document.createElement("table");
+                        tabel.setAttribute("border", "1");
+                        var numenota = document.createElement("thead");
+                        var tr = document.createElement("tr");
+
+                        /* Thead - Nume | Nota */
+                        for(var i = 0; i < 2; i++) 
+                        {
+                            var var_th = document.createElement("th");
+                            if (i == 0) {
+                                var node1 =document.createTextNode("Nume");
+                            }
+                            else {
+                                var node1 =document.createTextNode("Nota");
+                            }
+                            var_th.appendChild(node1);
+
+                            tr.appendChild(var_th);
+                        }
+
+                        numenota.appendChild(tr);   
+                        tabel.appendChild(numenota);
+
+                        /*Adaugare Nume - Nota */ 
+                        var tbody = document.createElement("tbody");
+
+                        /* Parsare fisier JSON */
+                        var StrToParse =  xmlhttp.responseText;
+                        var toParse = JSON.parse(StrToParse);
+
+                         //for (var i in toParse.studenti) {
+                           for(var i = 0; i < toParse.studenti.length; i++) {  
+                            tr = document.createElement("tr");
+
+                             var var_td1 = document.createElement("td");
+                             node1 =document.createTextNode
+                                                (toParse.studenti[i].Nume);
+                             var_td1.appendChild(node1);
+
+                             var var_td2 = document.createElement("td");
+                             node1 =document.createTextNode
+                                                    (toParse.studenti[i].Nota);
+                             var_td2.appendChild(node1);
+
+                             tr.appendChild(var_td1);
+                             tr.appendChild(var_td2);
+                             tbody.appendChild(tr);
+                         }
+
+
+                        tabel.appendChild(tbody);
+
+                        var element = document.getElementById("myDiv");
+                        element.appendChild(tabel);
+                   }
+                }
+                
+                xmlhttp.open("GET","catalog.txt",true);
+                xmlhttp.send();
+            }
+        </script>
+   </head>
+   <body>
+        <div id="myDiv"><h2>Afisare Nume : Nota</h2></div>
+        <button type="button" onclick="loadXMLDoc()">Afiseaza Nume si nota</button>
+    </body>
+</html>
